@@ -20,26 +20,26 @@ Rc = 1                  #驱动线圈等效电阻
 Lc = 1                  #驱动线圈等效电感
 
 
-def solvingEquation_7(Parameter_t):
+def armatureAxialElectromagneticThrust(Parameter_t):
     #求电枢轴向(z轴)电磁推力
     #应需要获取Parameter_Mcplj,Parameter_Ic以及Parameter_Ipj
     f = 0
     return f
 
-def solvingEquation_8(Parameter_t):
+def armatureAcceleration(Parameter_t):
     #求电枢在时刻t时的加速度
-    #牛顿第二定律 F = ma
-    a = solvingEquation_7(Parameter_t) / Ma
+    #牛顿第二定律变形式 a = F / m
+    a = armatureAxialElectromagneticThrust(Parameter_t) / Ma
     return a
 
-def solvingEquation_9(Parameter_t):
+def armatureSpeed(Parameter_t):
     #求电枢在时刻t时的速度
     t = sympy.symbols('t')
-    v = sympy.integrate(solvingEquation_8(Parameter_t), (t, 0,Parameter_t))
-    return v
+    speed = sympy.integrate(armatureAcceleration(Parameter_t), (t, 0,Parameter_t))
+    return speed
 
-def solvingEquation_10(Parameter_t):
+def armatureDisplacement(Parameter_t):
     #求电枢在时刻t时的位移
     t = sympy.symbols('t')
-    z = sympy.integrate(solvingEquation_9(Parameter_t), (t, 0,Parameter_t))
-    return z
+    displacement = sympy.integrate(armatureSpeed(Parameter_t), (t, 0,Parameter_t))
+    return displacement
