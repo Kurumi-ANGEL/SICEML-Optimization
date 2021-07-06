@@ -6,8 +6,7 @@ from copy import deepcopy
 from random import random, randrange
 from typing import List, Tuple
 
-from Chromosome import Chromosome
-from GeneticAlgorithm import GeneticAlgorithm
+from geneticAlgorithm import Chromosome, GeneticAlgorithm
 
 
 class SimpleEquation(Chromosome):
