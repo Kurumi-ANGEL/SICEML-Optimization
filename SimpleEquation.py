@@ -1,4 +1,4 @@
-# simple_equation.py
+# simpleEquation.py
 
 from __future__ import annotations
 
